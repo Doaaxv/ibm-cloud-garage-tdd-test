@@ -5,8 +5,17 @@ describe('the prime factors canary spec', () => {
 });
 
 let findPrimeFactors = (number) => { 
-  if(number ===1) return []
-  return [number]; };
+  let factors = []
+  if(number>1){
+    if(number%2===0){
+      factors.push(2)
+      number/=2
+    }
+    if(number>1){
+    factors.push(number)}
+  }
+  return factors;
+};
 
 describe('a prime factors function should', () => {
   it('return none for 1',()=>{
@@ -21,7 +30,9 @@ describe('a prime factors function should', () => {
   it('return 2, 2 for 4',()=>{
     expect(findPrimeFactors(4)).toEqual([2,2])
   });
-  it.todo('return 5 for 5');
+  it('return 5 for 5',()=>{
+    expect(findPrimeFactors(5)).toEqual([5])
+  });
   it.todo('return 2, 3 for 6');
   it.todo('return 7 for 7');
   it.todo('return 2, 2, 2 for 8');

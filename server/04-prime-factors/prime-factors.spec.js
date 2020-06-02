@@ -11,8 +11,7 @@ let findPrimeFactors = (number) => {
       factors.push(2)
       number/=2
     }
-    if(number>1){
-    factors.push(number)}
+    if(number>1) factors.push(number)
   }
   return factors;
 };
